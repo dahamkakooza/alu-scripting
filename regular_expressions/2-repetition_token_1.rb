@@ -1,2 +1,6 @@
 #!/usr/bin/env ruby
-puts ARGV[0].scan(/h[bt]?[bt]?n/).join
+#puts the 1st arg in a variable
+input = ARGV[0]
+
+#checks matches
+puts input.scan(/hb?tn/).join

@@ -1,2 +1,5 @@
 #!/usr/bin/env ruby
-puts ARGV[0].scan(/School/).join
+#this code put the 1st arg in the variable input
+input = ARGV[0]
+#thi one checks if the arg matches school
+puts input.scan(/School/).join
