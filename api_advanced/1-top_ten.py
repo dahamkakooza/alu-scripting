@@ -1,18 +1,20 @@
 #!/usr/bin/python3
-"""DOCS"""
-import requests
+"""
+1-main
+"""
+import sys
 
+if __name__ == '__main__':
+    try:
+        # Import the top_ten function from 1-top_ten
+        top_ten = __import__('1-top_ten').top_ten
+    except AttributeError:
+        print("Error: '1-top_ten' module does not contain 'top_ten' function.")
+        sys.exit(1)
 
-def top_ten(subreddit):
-    """Docs"""
-    reddit_url = "https://www.reddit.com/r/{}/hot.json" \
-        .format(subreddit)
-    headers = headers = {'User-agent': 'Mozilla/5.0'}
-    response = requests.get(reddit_url, headers=headers)
-
-    if response.status_code == 200:
-        data = response.json()['data']
-        for post in data['children'][:10]:
-            print(post['data']['title'])
+    # Check if an argument is provided
+    if len(sys.argv) < 2:
+        print("Please pass an argument for the subreddit to search.")
     else:
-        print(None)
+        # Call the top_ten function with the subreddit argument
+        top_ten(sys.argv[1])
